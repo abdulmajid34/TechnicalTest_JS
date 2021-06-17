@@ -7,8 +7,8 @@ import NotFound from './NotFound'
 
 function Dashboard() {
     // const dispatch = useDispatch()
-    const [data, loading, error] = useFetchApi('https://covid-19-tracking.p.rapidapi.com/v1')
-    console.log(data, 'INI DATA COVID NYA');
+    const [dataCovid, loading, error] = useFetchApi('https://covid-19-tracking.p.rapidapi.com/v1')
+    console.log(dataCovid, 'INI DATA COVID NYA');
 
     if(loading) {
         return <Loading />
@@ -20,7 +20,6 @@ function Dashboard() {
     return (
         <div>
             <h1>INI DI DASHBOARD</h1>
-            {JSON.stringify(data, null, 2)}
         </div>
     )
 }

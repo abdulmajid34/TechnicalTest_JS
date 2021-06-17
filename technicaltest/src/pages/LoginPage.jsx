@@ -47,10 +47,10 @@ function LoginPage() {
                     <div className="mt-10">
                         <form onSubmit={(event) => handleSubmit(event)} method="post">
                             <div className="relative w-full mb-3">
-                                <input type="email" className="border-0 p-4 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" required name="email" value={login.email} onChange={(event) => handleChange(event)} placeholder="email" />
+                                <input type="email" data-testid="form-error" aria-label="email" className="border-0 p-4 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" required name="email" value={login.email} onChange={(event) => handleChange(event)} placeholder="email" />
                             </div>
                             <div className="relative w-full mb-3">
-                                <input type="password" className="border-0 p-4 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" value={login.password} onChange={(event) => handleChange(event)} required name="password" placeholder="password" />
+                                <input type="password" data-testid="form-error" aria-label="password" className="border-0 p-4 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full" value={login.password} onChange={(event) => handleChange(event)} required name="password" placeholder="password" />
                             </div>
                             <div className="text-center mt-6">
                                 <input type="submit" className="p-3 rounded-lg bg-blue-600 outline-none text-white shadow w-32 justify-center focus:bg-blue-700 hover:bg-blue-500" value="Login" name="submit"  />
