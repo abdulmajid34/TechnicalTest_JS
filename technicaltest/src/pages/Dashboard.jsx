@@ -10,7 +10,7 @@ import { Bar, defaults } from 'react-chartjs-2';
 
 function Dashboard() {
     // const dispatch = useDispatch()
-    const [dataCovid, loading, error] = useFetchApi('http://localhost:5000/results')
+    // const [dataCovid, loading, error] = useFetchApi('http://localhost:5000/results')
     // console.log(dataCovid, 'INI DATA COVID NYA');
 
     const history = useHistory()
@@ -20,12 +20,22 @@ function Dashboard() {
         history.push('/')
     }
 
-    if(loading) {
-        return <Loading />
-    }
-    if(error) {
-        return <NotFound />
-    }
+    let dataCovid = [
+        {
+            "id": 1,
+            "population": 7444509223,
+            "confirmed": 177176595,
+            "recovered": 115273419,
+            "deaths": 3835504
+        }
+    ]
+
+    // if(loading) {
+    //     return <Loading />
+    // }
+    // if(error) {
+    //     return <NotFound />
+    // }
 
     // defaults.global.tooltips.enabled = false
     defaults.plugins.legend.position = 'right';
