@@ -1,20 +1,27 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-// import { useFetchApi } from '../hooks/useFetchApi'
-// import Loading from './Loading'
-// import NotFound from './NotFound'
+import { useFetchApi } from '../hooks/useFetchApi'
+import Loading from './Loading'
+import NotFound from './NotFound'
 
 function About() {
     const history = useHistory()
     const dataCovidCountry = useSelector(state => state.tableData)
     console.log(dataCovidCountry, 'INI DATA COVID NYA');
-    // const [dataCovidCountry] = useFetchApi('https://covid-api.mmediagroup.fr/v1/cases')
-    // console.log(dataCovidCountry, 'INI DATA COUNTRY');
+    const [dataCovid, loading, error] = useFetchApi('https://covid-api.mmediagroup.fr/v1/cases')
+    console.log(dataCovid, 'INI DATA COUNTRY');
     
     const handleLogout = () => {
         localStorage.clear()
         history.push('/')
+    }
+
+    if(loading) {
+        return <Loading />
+    }
+    if(error) {
+        return <NotFound />
     }
     
     return (
@@ -79,7 +86,7 @@ function About() {
                         </thead>
                         <tbody class="divide-y bg-blue-200">
                         <tr>
-                            <td class="px-6 py-4 text-center">Indonesia</td>
+                            <td class="px-6 py-4 text-center">dataCovid</td>
                             <td class="px-6 py-4 text-center">53753</td>
                             <td class="px-6 py-4 text-center">1771220</td>
                             <td class="px-6 py-4 text-center">1950276</td>
