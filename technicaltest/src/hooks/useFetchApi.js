@@ -12,22 +12,22 @@ export function useFetchApi(url) {
     useEffect(() => {
         setLoading(true)
         fetch(url, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "0232389a9emshff16a8dfb221448p1ef225jsn92207a695aa0",
-            "x-rapidapi-host": "covid-19-tracking.p.rapidapi.com"
-        }
+        "method": "GET"
+        // "headers": {
+        //     "x-rapidapi-key": "0232389a9emshff16a8dfb221448p1ef225jsn92207a695aa0",
+        //     "x-rapidapi-host": "covid-19-tracking.p.rapidapi.com"
+        // }
         })
         .then(response => {
             // console.log(response, 'response 1');
             return response.json()
         })
         .then(response => {
-            // console.log(response[1], 'INI DATA RESPONSE');
-            let filtered = [...response]
-            filtered.shift()
-            console.log(filtered, 'INI FILTER');
-            setData(filtered)
+            console.log(response, 'INI DATA NYA');
+            // let filtered = [...response]
+            // const filtered = response.shift()
+            // console.log(filtered, 'INI FILTER');
+            setData(response)
         })
         .catch(err => {
             setError(err);
