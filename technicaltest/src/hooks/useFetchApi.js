@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 // import axios from 'axios'
 
@@ -13,10 +12,6 @@ export function useFetchApi(url) {
         setLoading(true)
         fetch(url, {
         "method": "GET"
-        // "headers": {
-        //     "x-rapidapi-key": "0232389a9emshff16a8dfb221448p1ef225jsn92207a695aa0",
-        //     "x-rapidapi-host": "covid-19-tracking.p.rapidapi.com"
-        // }
         })
         .then(response => {
             // console.log(response, 'response 1');

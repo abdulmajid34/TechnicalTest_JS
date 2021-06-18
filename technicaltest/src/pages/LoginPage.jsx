@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import { postLogin } from '../store/actions/action'
 
 function LoginPage() {
     const history = useHistory()
@@ -18,25 +19,15 @@ function LoginPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios({
-            method: 'post',
-            url: 'https://ayodhya-dev.qlue.id/api/auths/login', //https://ayodhya-dev.qlue.id/api/auths/login
-
-            data: {
-                email: login.email,
-                password: login.password,
-                fcm_token: '123'
-            }
-        })
+        postLogin(login.email, login.password)
         .then((response) => {
-            console.log(response, 'INI DATA NYA');
-            localStorage.setItem('id', response.data.profile.id)
-            localStorage.setItem('access_token', response.data.token.access_token)
-            history.push('/dashboard')
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+            if(localStorage.getItem('access_token')) {
+                history.push('/dashboard')
+                console.log("berhasil login");
+            } else {
+                console.log("tidak dapat login");
+            }
+        }) 
     }
 
     return (
