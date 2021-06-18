@@ -39,7 +39,6 @@ function App() {
             </GuardedRoute>
           </Switch>
         </div>
-
       </GuardProvider>
     </Router>
   );
